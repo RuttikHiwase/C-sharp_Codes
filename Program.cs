@@ -1,78 +1,54 @@
-﻿namespace AbstractClasses1
+﻿using System.Collections;
+
+namespace CollectionExamples
 {
     internal class Program
     {
-        static void Main1(string[] args)
+
+        static public void Main(String[] args)
         {
-            AbsClass1 o;
-            //o = new AbsClass1();  //error
 
-            DerivedClass o2 = new DerivedClass();
-            o2.Display();
+            Console.WriteLine("Main Method");
+
         }
-    }
 
-    public abstract class AbsClass1
-    {
-        public void Display()
-        {
-            Console.WriteLine("disp");
+        static void Main1() {
+            ArrayList objArrayList = new ArrayList();
+            objArrayList.Add("Ruttik");
+            objArrayList.Add("seven");
+            objArrayList.Add("jayesh");
+            objArrayList.Add(100000);
+            objArrayList.Add(true);
+            objArrayList.Add("Ruttik");
+
+            //-----------------------------
+            objArrayList.Remove("Ruttik");
+            objArrayList.RemoveAt(2);
+            objArrayList.RemoveAt(3);
+            //--------------------------------
+            ArrayList o2 = new ArrayList();
+            objArrayList.AddRange(o2);
+
+
+            objArrayList.Insert(0, "new");
+            objArrayList.InsertRange(0, o2);
+            objArrayList.RemoveRange(0, 3);
+
+            //objArrayList.IndexOf
+            
+
+
+
+
+
+
+            foreach (object item in objArrayList)
+            {
+                Console.WriteLine(item);
+            }
         }
+
     }
 
-    public class DerivedClass : AbsClass1 
-    { 
-    
-    }
+
 }
-
-namespace AbstractClasses2
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            AbsClass1 o;
-            //o = new AbsClass1();  //error
-
-            DerivedClass o2 = new DerivedClass();
-            o2.Display();
-        }
-    }
-
-    public abstract class AbsClass1
-    {
-        public abstract void Display();
-        public abstract void Show();
-
-    }
-
-    public class DerivedClass : AbsClass1
-    {
-        public override void Display()
-        {
-            Console.WriteLine("disp");
-        }
-
-        public override void Show()
-        {
-            Console.WriteLine("show");
-        }
-    }
-
-    public abstract class Derived2 :AbsClass1
-    {
-
-    }
-}
-
-/*
-                            Can Instantiate     Can be used as a base class
-Abstract Class              NO                  YES
-
-Sealed Class                YES                 NO
-
-
-
- 
-*/
